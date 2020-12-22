@@ -1,0 +1,12 @@
+name: BloodCellBasisApp
+title: BloodCellBasisApp
+username:
+account: grealesm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3425282
+bundleId: 4019665
+url: https://grealesm.shinyapps.io/bloodcellbasisapp/
+when: 1608660753.46885
+asMultiple: FALSE
+asStatic: FALSE
