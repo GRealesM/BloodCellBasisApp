@@ -1,0 +1,37 @@
+Trait	Full_trait_name
+BANEC	Sum of Basophil and Neutrophil counts
+BASC	Basophil count
+BASPG	Basophil percentage of granulocytes
+BASPL	Basophil percentage of Leukocytes
+CORV	Mean corpuscular volume
+EOBAC	Sum of Eosinophil and Basophil Counts
+EOPG	Eosinophil percentage of granulocytes
+EOPL	Eosinophil percentage of leucocytes
+EOSC	Eosinophil count
+ERYC	Erytocyte count
+GRAC	Granulocyte count
+GRPMW	Granulocyte percentage of myeloid white cells
+HBC	Hemoglobin concentration
+HEMAT	Hematocrit
+LEUC	Leukocyte count
+LYMC	Lymphocyte Count
+LYMPL	Lymphocyte percentage of Leukocytes
+MCH	Mean Corpuscular Hemoglobin
+MCHC	Mean corpuscular hemoglobin concentration
+MONC	Monocyte Count
+MONPL	Monocyte percentage of leukocytes
+MWCC	Myeloid White Cell Count
+NEEOC	sum of neutrophil and eosinophil counts
+NEPGR	Neutrophil Percentage of Granulocytes
+NEPL	Neutrophil percentage of leucocytes
+NEUC	Neutrophil Count
+PLAC	Platelet count
+PLACR	Platelet crit
+PLADW	Platelet component Distribution Width
+PLAV	Mean platelet volume
+RBCW	Red Blood Cell Distribution Width
+RETC	Reticulocyte count
+RETFRC	Reticulocyte fraction of red cells
+RETHLC	High light scatter reticulocyte count
+RETHLPRC	High Light Scatter Reticulocyte percentage of red cells
+RETIF	Immature fraction of reticulocytes
