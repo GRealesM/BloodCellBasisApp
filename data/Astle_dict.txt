@@ -21,7 +21,7 @@ MCHC	Mean corpuscular hemoglobin concentration
 MONC	Monocyte Count
 MONPL	Monocyte percentage of leukocytes
 MWCC	Myeloid White Cell Count
-NEEOC	sum of neutrophil and eosinophil counts
+NEEOC	Sum of neutrophil and eosinophil counts
 NEPGR	Neutrophil Percentage of Granulocytes
 NEPL	Neutrophil percentage of leucocytes
 NEUC	Neutrophil Count

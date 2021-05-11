@@ -57,9 +57,9 @@ ui <- bootstrapPage(
         helpText("Upload files in .txt, .csv, .tsv. Compressed files (e.g. .txt.gz) are also accepted"),
         fileInput("user_data", "", accept = c(".txt", ".csv", ".tsv", ".txt.gz", ".tsv.gz", ".csv.gz"), multiple = F),
         #selectInput("population","Select population", c('EUR (European)', 'AFR (African)', 'EAS (East Asian)', 'SAS (South Asian)', 'AMR (admixed American)'),selected='EUR (European)'),
-        textInput("trait_name", "Trait name", "IL-10"),
+        textInput("trait_name", "Trait name", "Asthma"),
         textOutput("checkfile"),
-        a(strong("Download example dataset"), href="https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/IL10_AholaOlli_27989323_1-ft.tsv") 
+        a(strong("Download example dataset"), href="https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/J10_ASTHMA_FinnGen_FinnGenR3_1-ft.tsv") 
         ),
         selectInput("PCDelta","Principal component", paste('PC',1:14,sep=''),selected='PC1'),
         wellPanel(h3("Uploaded data overview"),tableOutput("QCtable"))
@@ -167,7 +167,7 @@ server <- function(input, output, session) {
      
      M <- reactive({
       if(is.null(input$user_data)){
-        uploaded_data <- fread("data/IL10_AholaOlli_27989323_1-ft.tsv")
+        uploaded_data <- fread("data/J10_ASTHMA_FinnGen_FinnGenR3_1-ft.tsv")
       } else {
         uploaded_data <- fread(input$user_data$datapath)
       }
@@ -227,7 +227,6 @@ server <- function(input, output, session) {
   # Finally, we combine this data.table with the projected.userdata
    combined.deltaplot.dt <- function(){
        basistable.projected <- copy(projected.basis)
-       setnames(basistable.projected, c("delta", "trait"), c("Delta", "Trait"))
        combined.deltaplot.dt <- rbind(basistable.projected[,.(PC,Delta,Var.Delta=0,Trait)],projected.userdata()[,.(PC,Delta,Var.Delta,Trait)])
        combined.deltaplot.dt[Var.Delta!=0, ci:=sqrt(Var.Delta) * 1.96]
        return(combined.deltaplot.dt)

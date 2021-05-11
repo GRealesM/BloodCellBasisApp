@@ -3,7 +3,7 @@
 
 #### A Shiny App for projecting your own GWAS data onto the 36-Blood-cell-trait basis
 
-Updated: 22/12/2020
+Updated: 11/05/2021
 
 **Note:** This is a beta version. Some important features and
 compatibility with some data formats and builds will be surely missing,
@@ -41,7 +41,7 @@ For improved visualisation, we used acronyms for the blood cell traits in the pl
 | EOPG	| Eosinophil percentage of granulocytes|
 | EOPL	| Eosinophil percentage of leucocytes|
 | EOSC	| Eosinophil count|
-| ERYC	| Erytocyte count|
+| ERYC	| Erythrocyte count|
 | GRAC	| Granulocyte count|
 | GRPMW	| Granulocyte percentage of myeloid white cells|
 | HBC	| Hemoglobin concentration|
@@ -54,7 +54,7 @@ For improved visualisation, we used acronyms for the blood cell traits in the pl
 | MONC	| Monocyte Count|
 | MONPL	| Monocyte percentage of leukocytes|
 | MWCC	| Myeloid White Cell Count|
-| NEEOC	| sum of neutrophil and eosinophil counts|
+| NEEOC	| Sum of neutrophil and eosinophil counts|
 | NEPGR	| Neutrophil Percentage of Granulocytes|
 | NEPL	| Neutrophil percentage of leucocytes|
 | NEUC	| Neutrophil Count|
@@ -77,6 +77,7 @@ A  detailed account of the methodology is available in the paper but here is a b
 
 This lens can be applied to external GWAS datasets, and these reweighted effect sizes can be projected onto this **basis** and their location with basis-space observed. We developed a method to assess whether the location of a projected trait within basis-space is significantly different from what would be expected under the null, thus enabling the kinds of analyses detailed in the introduction.  
 
+We applied **varimax rotation** to the rotation matrix `rot.pca`, with the aim to maximise the amount of variance explained by the different components, and facilitate interpretation of the results. Varimax rotation has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
 
 ## How to use this tool
 
@@ -142,19 +143,18 @@ There is no requirement for a GWAS to be performed on a particular genotyping pl
   
 ## Example file
 
-We included a filtered dataset that serves as a default dataset to showcase what should be expected when inputting your own data. You can download this example dataset [here](https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/IL10_AholaOlli_27989323_1-ft.tsv).
-This dataset correspond to a GWAS of IL-10, published by Aholla-Olli et al., 2017 ([10.1016/j.ajhg.2016.11.007](https://doi.org/10.1016/j.ajhg.2016.11.007)), and publicly available at [GWAS Catalog](https://www.ebi.ac.uk/gwas/efotraits/EFO_0004750) or [here](http://computationalmedicine.fi/data#Cytokine_GWAS).
+We included a filtered dataset that serves as a default dataset to showcase what should be expected when inputting your own data. You can download this example dataset [here](https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/J10_ASTHMA_FinnGen_FinnGenR3_1-ft.tsv).
+This dataset is a subset of an Asthma GWAS published by the [FinnGen Project (release 3)](https://www.finngen.fi/en/access_results), and publicly available [here](https://storage.googleapis.com/finngen-public-data-r3/summary_stats/finngen_r3_J10_ASTHMA.gz).
 
 This is an example of dataset format that *should* work:
 
-|  SNPID        | CHR	| POS	        | REF	| ALT	| BETA	        | SE	        | P     |
+|      SNPID    | CHR   |   POS         | REF   | ALT   | BETA     | SE        | P
 | :------------ | ---:  | ------------: | :---- | :---- | ------------: | ------------: | ----: |
-| rs735877	| 10	| 100344764	| C	| T	| 0.0105482	| 0.0161209	| 0.5145|
-| rs11190483	| 10	| 100353892	| C	| T	| 0.0178126	| 0.0167179	| 0.2822|
-| rs4919611	| 10	| 102135182	| C	| A	| \-0.0212955	| 0.0331373	| 0.4849|
-| rs4532960	| 10	| 102907649	| C	| T	| 0.0002985	| 0.0165189	| 0.9869|
-| rs2297786	| 10	| 102920221	| C	| T	| 0.0001990	| 0.0165189	| 0.9889|
-| rs4307650	| 10	| 103200095	| C	| A	| 0.0010946	| 0.0166184	| 0.9472|
+|   rs735877 | 10 | 100344764  | C  | T |  0.0277  | 0.0147 | 0.059680|
+| rs11190483 | 10 | 100353892  | C  | T |  0.0401  | 0.0150 | 0.007497|
+|  rs4919611 | 10 | 102135182  | C  | A | \-0.0227 | 0.0303 | 0.453700|
+|  rs4532960 | 10 | 102907649  | C  | T | \-0.0258 | 0.0151 | 0.087390|
+|  rs2297786 | 10 | 102920221  | C  | T | \-0.0258 | 0.0151 | 0.086850|
 
 
 ## Dependencies

@@ -19,6 +19,7 @@ Understanding the aetiological relationships between multiple (>2) complex disea
 One of the traits of interest for us are *Blood cell levels*, since blood cells play a crucial role in homeostasis, oxygen and nutrient transport, and innate and acquired immune responses. Qualitative or quantitative abnormalities of blood cell formation, and of their physiological and functional properties, have been associated with predisposition to cancer and with many severe congenital disorders including anaemias, bleeding, and thrombotic disorders and immunodeficiencies. 
 Thus, we decided to build a basis of blood cell levels, using data from [Astle et al., 2016](https://doi.org/10.1016/j.cell.2016.10.042), which comprises 36 GWAS datasets from blood cell-related traits on ~170,500 individuals on average. See below for the full list of traits.
 
+
 This software allows a user to upload their own GWAS summary data and project onto this basis. We envisage four main scenarios where this might be useful:
 
 1. You want to understand if a trait shares a common genetic risk component with Blood cell counts.
@@ -129,7 +130,7 @@ For improved visualisation, we used acronyms for the blood cell traits in the pl
   </tr>
   <tr>
    <td style="text-align:left;"> NEEOC </td>
-   <td style="text-align:left;"> sum of neutrophil and eosinophil counts </td>
+   <td style="text-align:left;"> Sum of neutrophil and eosinophil counts </td>
   </tr>
   <tr>
    <td style="text-align:left;"> NEPGR </td>
@@ -194,6 +195,7 @@ A  detailed account of the methodology is available in the paper but here is a b
 
 This lens can be applied to external GWAS datasets, and these reweighted effect sizes can be projected onto this **basis** and their location with basis-space observed. We developed a method to assess whether the location of a projected trait within basis-space is significantly different from what would be expected under the null, thus enabling the kinds of analyses detailed in the introduction.  
 
+We applied **varimax rotation** to the rotation matrix `rot.pca`, with the aim to maximise the amount of variance explained by the different components, and facilitate interpretation of the results. Varimax rotation has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
 
 ## How to use this tool
 
@@ -239,7 +241,7 @@ In order to analyze your own data, you must provide a GWAS summary statistics fi
 - With the following colummns (same order is **not** a requirement), here **OR** is short for odds ratio and is relevant to case/control studies only. The basis actually uses the log of the OR or **BETA** so either can be supplied, with software performing the neccessary conversion. GWAS of quantitative traits can also be projected and by definition will use **BETA**.
   
     - **CHR** (Chromosome)
-    - **POS** (Base position)
+    - **POS** (Base position in hg38/GRCh38 build)
     - **REF** (Reference allele)
     - **ALT** (Alternative, or effect allele), 
     - **SE** (Standard Error of the log OR, BETA)
@@ -259,8 +261,8 @@ There is no requirement for a GWAS to be performed on a particular genotyping pl
   
 ## Example file
 
-We included a filtered dataset that serves as a default dataset to showcase what should be expected when inputting your own data. You can download this example dataset [here](https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/IL10_AholaOlli_27989323_1-ft.tsv).
-This dataset correspond to a GWAS of IL-10, published by Aholla-Olli et al., 2017 ([10.1016/j.ajhg.2016.11.007](https://doi.org/10.1016/j.ajhg.2016.11.007)), and publicly available at [GWAS Catalog](https://www.ebi.ac.uk/gwas/efotraits/EFO_0004750) or [here](http://computationalmedicine.fi/data#Cytokine_GWAS).
+We included a filtered dataset that serves as a default dataset to showcase what should be expected when inputting your own data. You can download this example dataset [here](https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/J10_ASTHMA_FinnGen_FinnGenR3_1-ft.tsv).
+This dataset is a subset of an Asthma GWAS published by the [FinnGen Project (release 3)](https://www.finngen.fi/en/access_results), and publicly available [here](https://storage.googleapis.com/finngen-public-data-r3/summary_stats/finngen_r3_J10_ASTHMA.gz).
 
 This is an example of dataset format that *should* work:
 
@@ -286,9 +288,9 @@ This is an example of dataset format that *should* work:
    <td style="text-align:right;"> 100344764 </td>
    <td style="text-align:left;"> C </td>
    <td style="text-align:left;"> T </td>
-   <td style="text-align:right;"> 0.0105482 </td>
-   <td style="text-align:right;"> 0.0161209 </td>
-   <td style="text-align:right;"> 0.5145 </td>
+   <td style="text-align:right;"> 0.0277 </td>
+   <td style="text-align:right;"> 0.0147 </td>
+   <td style="text-align:right;"> 0.059680 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 10:100353892 </td>
@@ -297,9 +299,9 @@ This is an example of dataset format that *should* work:
    <td style="text-align:right;"> 100353892 </td>
    <td style="text-align:left;"> C </td>
    <td style="text-align:left;"> T </td>
-   <td style="text-align:right;"> 0.0178126 </td>
-   <td style="text-align:right;"> 0.0167179 </td>
-   <td style="text-align:right;"> 0.2822 </td>
+   <td style="text-align:right;"> 0.0401 </td>
+   <td style="text-align:right;"> 0.0150 </td>
+   <td style="text-align:right;"> 0.007497 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 10:102135182 </td>
@@ -308,9 +310,9 @@ This is an example of dataset format that *should* work:
    <td style="text-align:right;"> 102135182 </td>
    <td style="text-align:left;"> C </td>
    <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> -0.0212955 </td>
-   <td style="text-align:right;"> 0.0331373 </td>
-   <td style="text-align:right;"> 0.4849 </td>
+   <td style="text-align:right;"> -0.0227 </td>
+   <td style="text-align:right;"> 0.0303 </td>
+   <td style="text-align:right;"> 0.453700 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 10:102907649 </td>
@@ -319,9 +321,9 @@ This is an example of dataset format that *should* work:
    <td style="text-align:right;"> 102907649 </td>
    <td style="text-align:left;"> C </td>
    <td style="text-align:left;"> T </td>
-   <td style="text-align:right;"> 0.0002985 </td>
-   <td style="text-align:right;"> 0.0165189 </td>
-   <td style="text-align:right;"> 0.9869 </td>
+   <td style="text-align:right;"> -0.0258 </td>
+   <td style="text-align:right;"> 0.0151 </td>
+   <td style="text-align:right;"> 0.087390 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 10:102920221 </td>
@@ -330,20 +332,20 @@ This is an example of dataset format that *should* work:
    <td style="text-align:right;"> 102920221 </td>
    <td style="text-align:left;"> C </td>
    <td style="text-align:left;"> T </td>
-   <td style="text-align:right;"> 0.0001990 </td>
-   <td style="text-align:right;"> 0.0165189 </td>
-   <td style="text-align:right;"> 0.9889 </td>
+   <td style="text-align:right;"> -0.0258 </td>
+   <td style="text-align:right;"> 0.0151 </td>
+   <td style="text-align:right;"> 0.086850 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 10:103200095 </td>
-   <td style="text-align:left;"> rs4307650 </td>
+   <td style="text-align:left;"> 10:112312914 </td>
+   <td style="text-align:left;"> rs11195887 </td>
    <td style="text-align:right;"> 10 </td>
-   <td style="text-align:right;"> 103200095 </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 0.0010946 </td>
-   <td style="text-align:right;"> 0.0166184 </td>
-   <td style="text-align:right;"> 0.9472 </td>
+   <td style="text-align:right;"> 112312914 </td>
+   <td style="text-align:left;"> T </td>
+   <td style="text-align:left;"> G </td>
+   <td style="text-align:right;"> 0.0264 </td>
+   <td style="text-align:right;"> 0.0296 </td>
+   <td style="text-align:right;"> 0.371800 </td>
   </tr>
 </tbody>
 </table>

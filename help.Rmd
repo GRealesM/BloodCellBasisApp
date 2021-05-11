@@ -19,6 +19,7 @@ Understanding the aetiological relationships between multiple (>2) complex disea
 One of the traits of interest for us are *Blood cell levels*, since blood cells play a crucial role in homeostasis, oxygen and nutrient transport, and innate and acquired immune responses. Qualitative or quantitative abnormalities of blood cell formation, and of their physiological and functional properties, have been associated with predisposition to cancer and with many severe congenital disorders including anaemias, bleeding, and thrombotic disorders and immunodeficiencies. 
 Thus, we decided to build a basis of blood cell levels, using data from [Astle et al., 2016](https://doi.org/10.1016/j.cell.2016.10.042), which comprises 36 GWAS datasets from blood cell-related traits on ~170,500 individuals on average. See below for the full list of traits.
 
+
 This software allows a user to upload their own GWAS summary data and project onto this basis. We envisage four main scenarios where this might be useful:
 
 1. You want to understand if a trait shares a common genetic risk component with Blood cell counts.
@@ -44,6 +45,7 @@ A  detailed account of the methodology is available in the paper but here is a b
 
 This lens can be applied to external GWAS datasets, and these reweighted effect sizes can be projected onto this **basis** and their location with basis-space observed. We developed a method to assess whether the location of a projected trait within basis-space is significantly different from what would be expected under the null, thus enabling the kinds of analyses detailed in the introduction.  
 
+We applied **varimax rotation** to the rotation matrix with the aim to maximise the amount of variance explained by the different components, and facilitate interpretation of the results. Varimax rotation has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
 
 ## How to use this tool
 
@@ -89,7 +91,7 @@ In order to analyze your own data, you must provide a GWAS summary statistics fi
 - With the following colummns (same order is **not** a requirement), here **OR** is short for odds ratio and is relevant to case/control studies only. The basis actually uses the log of the OR or **BETA** so either can be supplied, with software performing the neccessary conversion. GWAS of quantitative traits can also be projected and by definition will use **BETA**.
   
     - **CHR** (Chromosome)
-    - **POS** (Base position)
+    - **POS** (Base position in hg38/GRCh38 build)
     - **REF** (Reference allele)
     - **ALT** (Alternative, or effect allele), 
     - **SE** (Standard Error of the log OR, BETA)
@@ -109,13 +111,13 @@ There is no requirement for a GWAS to be performed on a particular genotyping pl
   
 ## Example file
 
-We included a filtered dataset that serves as a default dataset to showcase what should be expected when inputting your own data. You can download this example dataset [here](https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/IL10_AholaOlli_27989323_1-ft.tsv).
-This dataset correspond to a GWAS of IL-10, published by Aholla-Olli et al., 2017 ([10.1016/j.ajhg.2016.11.007](https://doi.org/10.1016/j.ajhg.2016.11.007)), and publicly available at [GWAS Catalog](https://www.ebi.ac.uk/gwas/efotraits/EFO_0004750) or [here](http://computationalmedicine.fi/data#Cytokine_GWAS).
+We included a filtered dataset that serves as a default dataset to showcase what should be expected when inputting your own data. You can download this example dataset [here](https://raw.githubusercontent.com/GRealesM/BloodCellBasisApp/master/data/J10_ASTHMA_FinnGen_FinnGenR3_1-ft.tsv).
+This dataset is a subset of an Asthma GWAS published by the [FinnGen Project (release 3)](https://www.finngen.fi/en/access_results), and publicly available [here](https://storage.googleapis.com/finngen-public-data-r3/summary_stats/finngen_r3_J10_ASTHMA.gz).
 
 This is an example of dataset format that *should* work:
 
 ```{r, eval=TRUE, echo=FALSE, context = "data"}
-sample_dataset <- data.table::fread("data/IL10_AholaOlli_27989323_1-ft.tsv")
+sample_dataset <- data.table::fread("data/J10_ASTHMA_FinnGen_FinnGenR3_1-ft.tsv")
 table <- head(sample_dataset)
 kableExtra::kable_styling(knitr::kable(table, format = "html"), "striped", full_width = F)
 ```
