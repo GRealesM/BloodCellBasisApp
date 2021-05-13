@@ -5,9 +5,12 @@
 
 Updated: 11/05/2021
 
+**NOTE:** On 11th May 2021 we updated the BloodCellBasisApp to include a new rotation matrix to which we applied varimax rotation. This was done with the aim to maximise the variance explained by each component and thus improve interpretability. If you used a previous version of the app, results should not change much, but we encourage you to re-do your analysis on this new basis. 
+
 **Note:** This is a beta version. Some important features and
 compatibility with some data formats and builds will be surely missing,
 but will be implemented in future versions.
+
 
 Blood Cell Basis App can be accessed at: https://grealesm.shinyapps.io/BloodCellBasisApp/
 
@@ -130,7 +133,7 @@ In order to analyze your own data, you must provide a GWAS summary statistics fi
     - **BETA** (log OR) *or* **OR**
     - **P** (P-value)
       
-**A side note on SNPs and file size**: This App caps the maximum uploaded file size at **200MB**, which might be too small for most current GWAS summary statistics datasets. Our method focuses on 1736 SNPs for projection only, which means that if you filter your dataset to contain only those 1736 SNPs you'll obtain the same results - and it will run faster! 
+**A side note on SNPs and file size**: This App caps the maximum uploaded file size at **200MB**, which might be too small for most current GWAS summary statistics datasets. Our method focuses on 1661 SNPs for projection only, which means that if you filter your dataset to contain only those 1661 SNPs you'll obtain the same results - and it will run faster! 
 You can get the list of SNPs by downloading the example dataset, and a detailed explanation of how we chose those 1736 SNPs in the publication (see Citation below).
 
 ### Aligning effect sizes 
