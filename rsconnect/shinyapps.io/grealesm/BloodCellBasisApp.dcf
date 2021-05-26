@@ -5,9 +5,9 @@ account: grealesm
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3425282
-bundleId: 4585648
+bundleId: 4641430
 url: https://grealesm.shinyapps.io/bloodcellbasisapp/
-when: 1620739590.55865
-lastSyncTime: 1620739590.55866
+when: 1622022104.74304
+lastSyncTime: 1622022104.74305
 asMultiple: FALSE
 asStatic: FALSE

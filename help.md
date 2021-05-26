@@ -13,6 +13,11 @@ output: html_document
            }
 </style>
 
+
+<br>
+
+**NOTE:** On 11th May 2021 we updated the BloodCellBasisApp to include a new rotation matrix to which we applied varimax rotation. This was done with the aim to maximise the variance explained by each component and thus improve interpretability. If you used a previous version of the app, results should not change much, but we encourage you to re-do your analysis on this new basis.
+
 ##  Introduction
 
 Understanding the aetiological relationships between multiple (>2) complex diseases can provide insights into shared pathogenic themes which can then be used to inform therapeutic intervention. However, this has proved challenging for a number of reasons. In our paper [**'Genetic feature engineering enables characterisation of shared risk factors in immune-mediated diseases'**](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-020-00797-4), we expand on these challenges and describe a novel approach *cupcake* that seeks to overcome them. In the paper we propose a statistical framework that allows the creation of a lower-dimensional basis that summarises the sharing of genetic risk across a set of clinically related diseases. Using publicly available GWAS summary stats we apply the framework to the study of immune-mediated disease (IMD) to create an IMD specific basis. 
@@ -195,7 +200,7 @@ A  detailed account of the methodology is available in the paper but here is a b
 
 This lens can be applied to external GWAS datasets, and these reweighted effect sizes can be projected onto this **basis** and their location with basis-space observed. We developed a method to assess whether the location of a projected trait within basis-space is significantly different from what would be expected under the null, thus enabling the kinds of analyses detailed in the introduction.  
 
-We applied **varimax rotation** to the rotation matrix `rot.pca`, with the aim to maximise the amount of variance explained by the different components, and facilitate interpretation of the results. Varimax rotation has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
+We applied **varimax rotation** to the rotation matrix with the aim to maximise the amount of variance explained by the different components, and facilitate interpretation of the results. Varimax rotation has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
 
 ## How to use this tool
 
@@ -248,8 +253,8 @@ In order to analyze your own data, you must provide a GWAS summary statistics fi
     - **BETA** (log OR) *or* **OR**
     - **P** (P-value)
       
-**A side note on SNPs and file size**: This App caps the maximum uploaded file size at **200MB**, which might be too small for most current GWAS summary statistics datasets. Our method focuses on 1736 SNPs for projection only, which means that if you filter your dataset to contain only those 1736 SNPs you'll obtain the same results - and it will run faster! 
-You can get the list of SNPs by downloading the example dataset, and a detailed explanation of how we chose those 1736 SNPs in the publication (see Citation below).
+**A side note on SNPs and file size**: This App caps the maximum uploaded file size at **200MB**, which might be too small for most current GWAS summary statistics datasets. Our method focuses on 1661 SNPs for projection only, which means that if you filter your dataset to contain only those 1661 SNPs you'll obtain the same results - and it will run faster! 
+You can get the list of SNPs by downloading the example dataset, and a detailed explanation of how we chose those 1661 SNPs in the publication (see Citation below).
 
 ### Aligning effect sizes 
 

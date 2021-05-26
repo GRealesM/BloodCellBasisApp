@@ -5,7 +5,7 @@
 
 Updated: 11/05/2021
 
-**NOTE:** On 11th May 2021 we updated the BloodCellBasisApp to include a new rotation matrix to which we applied varimax rotation. This was done with the aim to maximise the variance explained by each component and thus improve interpretability. If you used a previous version of the app, results should not change much, but we encourage you to re-do your analysis on this new basis. 
+**NOTE:** On 11th May 2021 we updated the BloodCellBasisApp to include a new rotation matrix to which we applied varimax rotation. This was done with the aim improve interpretability. If you used a previous version of the app, results should not change much, but we encourage you to re-do your analysis on this new basis. 
 
 **Note:** This is a beta version. Some important features and
 compatibility with some data formats and builds will be surely missing,
@@ -80,7 +80,7 @@ A  detailed account of the methodology is available in the paper but here is a b
 
 This lens can be applied to external GWAS datasets, and these reweighted effect sizes can be projected onto this **basis** and their location with basis-space observed. We developed a method to assess whether the location of a projected trait within basis-space is significantly different from what would be expected under the null, thus enabling the kinds of analyses detailed in the introduction.  
 
-We applied **varimax rotation** to the rotation matrix `rot.pca`, with the aim to maximise the amount of variance explained by the different components, and facilitate interpretation of the results. Varimax rotation has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
+We applied **varimax rotation** to the PCA rotation matrix with the aim to make each factor relate to as few variables as possible (and vice versa). Thus, the varimax rotation simplifies the loadings of items by removing the middle ground and more specifically identifying the factor upon which data load. This has the desirable effect to increase high- and low-value loadings and reduce mid-value loadings, thus helping to characterise the different components.
 
 ## How to use this tool
 

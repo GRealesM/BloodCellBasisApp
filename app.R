@@ -48,6 +48,16 @@ ui <- bootstrapPage(
   gtag("config", "UA-134236872-2");
 </script>')
     ),
+    tags$div(HTML('<!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8T38Y984N"></script>
+   <script>
+   window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag("js", new Date());
+ 
+ gtag("config", "G-C8T38Y984N");
+ </script>')
+    ),
     titlePanel(TITLE, windowTitle = TITLE)
     ),
   sidebarLayout(
